@@ -12,7 +12,7 @@
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
     "noImplicitReturns": true,
-    "outDir": ".wasp/out/user",
+    "outDir": ".wasp/phantom",
     "typeRoots": [
       "node_modules/@testing-library",
       "node_modules/@types"
