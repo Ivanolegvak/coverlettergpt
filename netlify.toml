@@ -1,3 +1,4 @@
 [build]
   command = "curl -sSL https://get.wasp.sh/installer.sh | sh -s -- -v 0.15.0 && wasp build"
-  publish = ".wasp/build/web"
+  publish = ".wasp/build/client"
+
