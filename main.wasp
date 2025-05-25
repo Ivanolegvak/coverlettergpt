@@ -41,7 +41,14 @@ app CoverLetterGPT {
       email: "vince@wasp-lang.dev",
     },
   },
-}
+
+  server: {
+    cors: {
+      origins: [
+        "https://coverlettergp.netlify.app"
+      ]
+    }
+  },
 
 /* 📡 These are the Wasp Routes (You can protect them easily w/ 'authRequired: true');
  * https://wasp-lang.dev/docs/language/features#route
