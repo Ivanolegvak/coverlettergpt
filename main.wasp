@@ -51,46 +51,46 @@ app CoverLetterGPT {
   },
 
 /* 📡 These are the Wasp Routes */
-route RootRoute: "/" -> MainPage
+route RootRoute { path: "/", to: MainPage }
 page MainPage {
   component: import Main from "@src/client/MainPage"
 }
 
-route CoverLetterRoute: "/cover-letter/:id" -> CoverLetterPage
+route CoverLetterRoute { path: "/cover-letter/:id", to: CoverLetterPage }
 page CoverLetterPage {
   authRequired: true,
   component: import CoverLetter from "@src/client/CoverLetterPage"
 }
 
-route LoginRoute: "/login" -> LoginPage
+route LoginRoute { path: "/login", to: LoginPage }
 page LoginPage {
   component: import Login from "@src/client/LoginPage"
 }
 
-route JobsRoute: "/jobs" -> JobsPage
+route JobsRoute { path: "/jobs", to: JobsPage }
 page JobsPage {
   authRequired: true,
   component: import Jobs from "@src/client/JobsPage"
 }
 
-route ProfileRoute: "/profile" -> ProfilePage
+route ProfileRoute { path: "/profile", to: ProfilePage }
 page ProfilePage {
   authRequired: true,
   component: import Profile from "@src/client/ProfilePage"
 }
 
-route CheckoutRoute: "/checkout" -> CheckoutPage
+route CheckoutRoute { path: "/checkout", to: CheckoutPage }
 page CheckoutPage {
   authRequired: true,
   component: import Checkout from "@src/client/CheckoutPage"
 }
 
-route TosRoute: "/tos" -> TosPage
+route TosRoute { path: "/tos", to: TosPage }
 page TosPage {
   component: import Tos from "@src/client/legal/TosPage"
 }
 
-route PrivacyRoute: "/privacy" -> PrivacyPage
+route PrivacyRoute { path: "/privacy", to: PrivacyPage }
 page PrivacyPage {
   component: import Privacy from "@src/client/legal/PrivacyPolicyPage"
 }
