@@ -124,6 +124,7 @@ page PrivacyPage {
 
 
 
+
 /* ⛑ These are the Wasp Operations, which allow the client and server to interact:
  * https://wasp-lang.dev/docs/language/features#queries-and-actions-aka-operations
  */
