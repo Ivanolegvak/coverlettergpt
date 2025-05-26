@@ -54,73 +54,50 @@ app CoverLetterGPT {
  * https://wasp-lang.dev/docs/language/features#route
  */
 
-route RootRoute {
-  path: "/",
-  to: MainPage
-}
+route "/" -> MainPage
 page MainPage {
   component: import Main from "@src/client/MainPage"
 }
 
-route CoverLetterRoute {
-  path: "/cover-letter/:id",
-  to: CoverLetterPage
-}
+route "/cover-letter/:id" -> CoverLetterPage
 page CoverLetterPage {
   authRequired: true,
   component: import CoverLetter from "@src/client/CoverLetterPage"
 }
 
-route LoginRoute {
-  path: "/login",
-  to: LoginPage
-}
+route "/login" -> LoginPage
 page LoginPage {
   component: import Login from "@src/client/LoginPage"
 }
 
-route JobsRoute {
-  path: "/jobs",
-  to: JobsPage
-}
+route "/jobs" -> JobsPage
 page JobsPage {
   authRequired: true,
   component: import Jobs from "@src/client/JobsPage"
 }
 
-route ProfileRoute {
-  path: "/profile",
-  to: ProfilePage
-}
+route "/profile" -> ProfilePage
 page ProfilePage {
   authRequired: true,
   component: import Profile from "@src/client/ProfilePage"
 }
 
-route CheckoutRoute {
-  path: "/checkout",
-  to: CheckoutPage
-}
+route "/checkout" -> CheckoutPage
 page CheckoutPage {
   authRequired: true,
   component: import Checkout from "@src/client/CheckoutPage"
 }
 
-route TosRoute {
-  path: "/tos",
-  to: TosPage
-}
+route "/tos" -> TosPage
 page TosPage {
   component: import Tos from "@src/client/legal/TosPage"
 }
 
-route PrivacyRoute {
-  path: "/privacy",
-  to: PrivacyPage
-}
+route "/privacy" -> PrivacyPage
 page PrivacyPage {
   component: import Privacy from "@src/client/legal/PrivacyPolicyPage"
 }
+
 
 
 
