@@ -1,18 +1,25 @@
 import cors from 'cors';
+import express from 'express';
 
 export const serverSetup = (app) => {
-  // Configure CORS
+  app.use(express.json()); // Make sure POST requests work
+
   app.use(cors({
     origin: [
       'https://coverlettergp.netlify.app',
-      'http://localhost:3000', // for development
-      'https://localhost:3000' // for development with HTTPS
+      'http://localhost:3000',
+      'https://localhost:3000'
     ],
     credentials: true
-  }))
+  }));
+
+  // DEBUG LOGS
+  console.log('✅ serverSetup is running');
+
+  // DEBUG TEST ROUTE
   app.get("/cors-test", (req, res) => {
-    res.send("CORS is working ✅");
+    res.send("✅ CORS is working and serverSetup is connected");
   });
-  
-  console.log('Server setup completed with CORS configuration');
+
+  console.log('✅ CORS configured');
 };
