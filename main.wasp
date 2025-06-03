@@ -41,11 +41,7 @@ app CoverLetterGPT {
     },
   },
   server: {
-    cors: {
-      origins: [
-        "https://coverlettergp.netlify.app"
-      ]
-    }
+    setupFn: import { serverSetup } from "@src/server/serverSetup.js"
   }
 }
 
