@@ -9,7 +9,10 @@ export const serverSetup = (app) => {
       'https://localhost:3000' // for development with HTTPS
     ],
     credentials: true
-  }));
+  }))
+  app.get("/cors-test", (req, res) => {
+    res.send("CORS is working ✅");
+  });
   
   console.log('Server setup completed with CORS configuration');
 };
