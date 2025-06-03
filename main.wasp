@@ -19,13 +19,12 @@ app CoverLetterGPT {
         "<meta name=\"twitter:image:height\" content=\"400\" />",
         "<meta name=\"twitter:card\" content=\"summary_large_image\" />",
   ],
-  // 🔐 Auth out of the box! https://wasp-lang.dev/docs/language/features#authentication--authorization
   auth: {
     userEntity: User,
     methods: {
       google: {
-        userSignupFields: import { getUserFields } from "@src/server/auth.ts",
-        configFn: import { config } from "@src/server/auth.ts",
+        userSignupFields: import { getUserFields } from "@src/server/auth.js",
+        configFn: import { config } from "@src/server/auth.js",
       },
     },
     onAuthFailedRedirectTo: "/",
@@ -41,16 +40,15 @@ app CoverLetterGPT {
       email: "vince@wasp-lang.dev",
     },
   },
-
   server: {
     cors: {
       origins: [
         "https://coverlettergp.netlify.app"
       ]
     }
-  },
+  }
+}
 
-/* 📡 These are the Wasp Routes */
 route RootRoute { path: "/", to: MainPage }
 page MainPage {
   component: import Main from "@src/client/MainPage"
@@ -94,12 +92,6 @@ route PrivacyRoute { path: "/privacy", to: PrivacyPage }
 page PrivacyPage {
   component: import Privacy from "@src/client/legal/PrivacyPolicyPage"
 }
-
-/* ⛑ These are the Wasp Operations, which allow the client and server to interact:
- * https://wasp-lang.dev/docs/language/features#queries-and-actions-aka-operations
- */
-
-// 📝 Actions aka Mutations
 
 action generateCoverLetter {
   fn: import { generateCoverLetter } from "@src/server/actions.js",
@@ -162,7 +154,7 @@ action getLnLoginUrl {
 }
 
 action decodeInvoice {
-  fn: import { decodeInvoice } from "@src/server/ln.js",
+  fn: import { decodeInvoice } from "@src/server/ln.js"
 }
 
 action updateLnPayment {
@@ -171,10 +163,8 @@ action updateLnPayment {
 }
 
 action milliSatsToCents {
-  fn: import { milliSatsToCents } from "@src/server/ln.js",
+  fn: import { milliSatsToCents } from "@src/server/ln.js"
 }
-
-// 📚 Queries
 
 query getJobs {
   fn: import { getJobs } from "@src/server/queries.js",
@@ -211,10 +201,6 @@ query getCoverLetterCount {
   entities: [CoverLetter]
 }
 
-/* 📡 These are custom Wasp API Endpoints. Use them for callbacks, webhooks, etc.
- * https://wasp-lang.dev/docs/language/features#apis
- */ 
-
 api stripeWebhook {
   fn: import { stripeWebhook } from "@src/server/webhooks.js",
   entities: [User],
@@ -226,10 +212,6 @@ api lnLogin {
   entities: [User, LnData],
   httpRoute: (GET, "/ln-login")
 }
-
-/* 🕵️‍♂️ These are the Wasp Cron Jobs. Use them to set up recurring tasks or queues:
- * https://wasp-lang.dev/docs/language/features#jobs
- */
 
 job checkUserSubscription {
   executor: PgBoss,
