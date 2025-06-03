@@ -1,0 +1,9 @@
+railway.json{
+    "build": {
+      "command": "wasp build"
+    },
+    "start": {
+      "command": "wasp start"
+    }
+  }
+  
