@@ -167,6 +167,11 @@ query getJobs {
   entities: [Job]
 }
 
+query getAuthUser {
+  fn: import { getAuthUser } from "@src/server/queries.ts",
+  entities: [User]
+}
+
 query getJob {
   fn: import { getJob } from "@src/server/queries.js",
   entities: [Job]

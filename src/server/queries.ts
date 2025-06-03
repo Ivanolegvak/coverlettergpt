@@ -102,3 +102,14 @@ export const getUserInfo: GetUserInfo<Pick<User, 'id'> | null, Pick<User, 'id' |
 export const getCoverLetterCount: GetCoverLetterCount<void, number> = async (_args, context) => {
   return context.entities.CoverLetter.count();
 }
+
+export const getAuthUser = async (_args, context) => {
+  if (!context.user) {
+    throw new HttpError(401, 'Not authenticated');
+  }
+
+  return {
+    id: context.user.id,
+    email: context.user.email
+  };
+};
